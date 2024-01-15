@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { sql } from '@vercel/postgres'; //This function allows you to query your database
 import {
   CustomerField,
   CustomersTableType,
