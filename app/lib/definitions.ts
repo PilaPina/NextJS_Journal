@@ -17,9 +17,9 @@ export type Customer = {
 };
 
 export type Invoice = {
-  id: string;
+  id: string;  // Will be created on the database
   customer_id: string;
-  amount: number;
+  amount: number;  // Stored in cents. It's usually good practice to store monetary values in cents in your database to eliminate JavaScript floating-point errors and ensure greater accuracy.
   date: string;
   // In TypeScript, this is called a string union type.
   // It means that the "status" property can only be one of the two strings: 'pending' or 'paid'.
