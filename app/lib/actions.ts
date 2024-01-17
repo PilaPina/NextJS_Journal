@@ -7,6 +7,8 @@ import { z } from 'zod'; //a type validation library for Typescript.
 import { sql } from '@vercel/postgres'; 
 import { revalidatePath } from 'next/cache'; //revalidatePath clears the cahce and triggers a new request to the server
 import { redirect } from 'next/navigation';
+import { signIn } from '@/auth';  
+import { AuthError } from 'next-auth';
 
 const FormSchema = z.object({
   id: z.string(),
@@ -121,6 +123,27 @@ export async function updateInvoice(
       return { message: 'Oh NO! Database Error: Failed to Delete Invoice.' };
     }
   }
+
+  //Below we are connecting the auth logic with your login form.
+  export async function authenticate(
+    prevState: string | undefined,
+    formData: FormData,
+  ) {
+    try {
+      await signIn('credentials', formData);
+    } catch (error) {
+      if (error instanceof AuthError) {
+        switch (error.type) {
+          case 'CredentialsSignin':
+            return 'Invalid credentials.';
+          default:
+            return 'Something went wrong.';
+        }
+      }
+      throw error;
+    }
+  }
+
 
 /*Tip: If you're working with forms that have many fields, 
   you may want to consider using the entries() method with JavaScript's Object.fromEntries(). 
