@@ -17,12 +17,11 @@ callbacks: {
         return Response.redirect(new URL('/dashboard', nextUrl));
       }
       return true;
-    },
+    } , 
   },
-
 providers:  [], // Add providers with an empty array for now
-};
-//this part was not correct in the tutorial. There was a `satisfies NextAuthConfig;` at the end that should not have been there
+} satisfies NextAuthConfig; 
+
 
 
 
