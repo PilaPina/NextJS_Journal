@@ -3,10 +3,15 @@ import { inter } from '@/app/ui/fonts';
 import { Metadata } from 'next';
  
 export const metadata: Metadata = {
-  title: {   //The %s in the template will be replaced with the specific page title.
-    template: '%s | Acme Dashboard', // you can use the title.template field in the metadata object to define a template for your page titles. This template can include the page title, and any other information you want to include.
-    default: 'Acme Dashboard',        
+  // you can use the title.template field in the metadata object to define a template for your page titles. This template can include the page title, and any other information you want to include.
+  title: {
+    template: '% | Acme Dashboard',   //The %s in the template will be replaced with the specific page title.
+    default: 'Acme Dashboard',
   },
+  // title: {   //The %s in the template will be replaced with the specific page title.
+  //   template: '%s | Acme Dashboard', // you can use the title.template field in the metadata object to define a template for your page titles. This template can include the page title, and any other information you want to include.
+  //   default: 'Acme Dashboard',        
+  // },
   description: 'The official Next.js Learn Dashboard built with App Router.',
   metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
 };

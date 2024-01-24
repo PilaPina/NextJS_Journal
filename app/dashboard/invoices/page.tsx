@@ -9,7 +9,8 @@ import { fetchInvoicesPages } from '@/app/lib/data';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Invoices | Acme Dashboard',
+  title: 'Invoices',   //Because I've added a metadata template in app/layout.tsx I don't have to include the Acme Dashboard title. It will fill it in for me. 
+  //title: 'Invoices | Acme Dashboard',
 };
  
 export default async function Page({
